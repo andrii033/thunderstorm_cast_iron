@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Controller
 public class RegistrationController {
@@ -28,9 +29,10 @@ public class RegistrationController {
         Transaction transaction = sessionFactory.beginTransaction();
         Users user = new Users();
         user.setUserName(form.getUsername());
-        user.setPassword(form.getPassword());
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        user.setPassword(encoder.encode(form.getPassword()));
         user.setEmail(form.getEmail());
-        sessionFactory.save(user);
+        sessionFactory.persist(user);
         transaction.commit();
         sessionFactory.close();
 
