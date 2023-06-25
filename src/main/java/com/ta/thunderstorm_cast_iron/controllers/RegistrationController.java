@@ -37,7 +37,7 @@ public class RegistrationController {
         sessionFactory.close();
 
 
-        //System.out.println("Processing registration: " + form);
+        System.out.println("Processing registration: " + form);
         System.out.println("Username: " + form.getUsername());
         return "/registration-success";
     }
