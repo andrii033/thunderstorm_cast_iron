@@ -15,7 +15,7 @@
     <name>thunderstorm_cast_iron</name>
     <description>thunderstorm_cast_iron</description>
     <properties>
-        <java.version>20</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
